@@ -13,8 +13,14 @@ class UniswapSwapPublisher(Publisher[UniswapEventType]):
 
     async def listen_for_swaps(self):
         events = ["Swap(address,uint256,uint256,uint256,uint256,address)"]
-        await self.evm.get_data({"method": "subscribe", "events": events,
-                                 "addresses": self.token_addresses, "callback": self.on_swap})
+        await self.evm.get_data(
+            {
+                "method": "subscribe",
+                "events": events,
+                "addresses": self.token_addresses,
+                "callback": self.on_swap,
+            }
+        )
 
     async def on_swap(self, payload: dict):
         await self.publish("swap", payload)

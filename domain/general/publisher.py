@@ -4,6 +4,7 @@ from domain.general.subscriber import Subscriber
 
 EventType = TypeVar("EventType")
 
+
 class Publisher(Generic[EventType]):
     subscribers: Dict[EventType, List[Subscriber]] = {}
 

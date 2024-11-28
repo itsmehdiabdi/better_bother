@@ -26,7 +26,10 @@ class EVM(Blockchain):
             "address": data.get("address"),
             "fromBlock": data.get("from_block"),
             "toBlock": data.get("to_block"),
-            "topics": [self.ws_provider.provider.keccak(text=topic) for topic in data.get("topics")]
+            "topics": [
+                self.ws_provider.provider.keccak(text=topic)
+                for topic in data.get("topics")
+            ],
         }
 
         print(params)

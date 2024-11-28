@@ -36,7 +36,7 @@ class TelegramMessenger(Messenger):
             await self.bot.send_message(
                 chat_id=self.chat_id,
                 text=self.format_message(message),
-                parse_mode='HTML'
+                parse_mode="HTML",
             )
             return True
         except TelegramError as e:

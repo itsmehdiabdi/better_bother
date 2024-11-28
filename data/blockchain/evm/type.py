@@ -7,6 +7,7 @@ class EventRequestDTO(TypedDict):
     from_block: int
     to_block: int
 
+
 class SubscribeRequestDTO(TypedDict):
     events: List[str]
     addresses: List[str]
